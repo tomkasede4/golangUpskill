@@ -1,0 +1,124 @@
+--Are Examples . Take note for future ref
+Variable are case sensitive(age, Age and AGE are three different variables)
+Camel Case
+Each word, except the first, starts with a capital letter --myVariableName = "John"
+
+Pascal Case
+Each word starts with a capital letter --MyVariableName = "John"
+
+Snake Case
+Each word is separated by an underscore character --my_variable_name = "John"
+
+Variables Declaration
+|| Single Variable Declaration
+1.With var keyword
+var variablename type = value
+Type and or value must always be specified
+-- var firstName string = "Tom"
+-- var age int = 35
+-- var isAdult boolean = true
+-- var balance double = 4000000
+
+
+2.With := string
+Type of the variable is inferred from the value
+Can only be used in a function
+Value must be assigned at declaration
+variablename:= "Tom"
+
+
+|| Multiple Variable Declaration
+var firstName,lastName,age,isAdult = "Tom","Onyango",35,true
+
+
+
+|| Constants (unchangeable and read-only)
+Written in uppercase letters (for easy identification and differentiation from variables)
+Can be declared both inside and outside of a function
+const CONSTNAME type = value
+
+Can be
+*Typed --const PI double = 3.142
+*Untyped --const PI = 3.142 (Type is Inferred from the value)
+
+Can be gouped together in  a block
+const (
+	A int = 1
+	B = 3.14
+	C = "Hi!"
+  )
+
+Integers Data Type
+Default value is 0
+Can be 
+*Signed : Stores both -ve and +ve values --var age int = -10, var length int = 10
+*Unsigned : Stores only +ve values -- var age uint = 10
+
+	Sizes(int)
+	int	32 bits in 32 bit systems and 64 bit in 64 bit systems
+	int8	8 bits/1 byte
+	int16	16 bits/2 byte
+	int32	32 bits/4 byte
+	int64	64 bits/8 byte
+
+	Sizes(uint)
+	uint	32 bits in 32 bit systems and 64 bit in 64 bit systems
+	uint8	8 bits/1 byte
+	uint16	16 bits/2 byte
+	uint32	32 bits/4 byte
+	uint64	64 bits/8 byte
+
+
+Float Data Type
+Store positive and negative numbers with a decimal point, like 35.3, -2.34, or 3597.34987
+	Sizes
+	float32 32 bits/4 bytes
+	float64 64 bits/8 bytes
+
+
+
+Arrays
+Store multiple values of the same type
+Declaration
+	With var keyword 
+		Length is Known
+		var arrayName = [length]type{values} -- var myArray = [5]int{0,1,2,3,4}
+
+		Length Inferred
+		var arrayName = [...]type{values} -- var myArray = [...]int{0,1,5}
+	With := Signed
+  		Length is Known
+		arrayName := [length]type{values} -- var myArray = [5]int{0,1,2,3,4}
+
+		Length Inferred
+		arrayName := [...]type{values} -- var myArray = [...]int{0,1,5}
+Initialization
+	not initialized
+		arr1 := [5]int{} prints out [0 0 0 0 0]
+	partially initialized
+		arr2 := [5]int{1,2} prints out [1 2 0 0 0]
+	fully initialized
+		arr3 := [5]int{1,2,3,4,5} prints out [1 2 3 4 5]
+	initialize specific values
+		arr1 := [5]int{1:10,2:40} prints out [0 10 40 0 0]
+
+Find Length
+Use len() function
+	myArray := [...]int{0,1,2,3,4}
+	arrayLen := len(myArray) prints out 5
+
+
+Slices
+len() function - returns the length of the slice (the number of elements in the slice)
+cap() function - returns the capacity of the slice (the number of elements the slice can grow or shrink to)
+Similar to arrays but not restricted to size.
+Can be created in 3 ways
+	Using the []datatype{values} format
+  		my_slice := []int{} or my_slice := [3]int{0,2,2}
+	Create a slice from an array
+		var myarray = [length]type{values} // An array
+		myslice := myarray[start:end] // A slice made from the array
+	Using the make() function
+		slice_name := make([]type, length, capacity)//If the capacity parameter is not defined, it will be equal to length.
+
+
